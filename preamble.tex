@@ -1,0 +1,45 @@
+% Reformat the title
+\makeatletter
+\renewcommand{\maketitlepage}{
+    \begingroup
+    \setlength{\parindent}{0pt}
+    {\fontsize{24}{24}\selectfont\textit{\@author}\par}
+    \vspace{1.75in}{\fontsize{36}{54}\selectfont\@title\par}
+    \vspace{0.5in}{\fontsize{14}{14}\selectfont\textsf{\smallcaps{\@date}}\par}
+    \vfill{\fontsize{14}{14}\selectfont\textit{\@publisher}\par}
+    \thispagestyle{empty}
+    \endgroup
+}
+\makeatother
+
+% Add numbers to the chapters
+\setcounter{secnumdepth}{2}
+
+\titleformat{\chapter}
+    {\huge\rmfamily\itshape}
+    {Lecture \thechapter.}
+    {8pt}
+    {}
+    []
+
+% Reformat table of contents
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+\renewcommand{\chaptername}{Lecture}
+
+\titlecontents{part}
+    [0pt]
+    {\addvspace{0.25\baselineskip}}
+    {\allcaps{Part~\thecontentslabel}}
+    {\allcaps{Part~\thecontentslabel}}
+    {}
+    [\vspace*{0.5\baselineskip}]
+    
+\titlecontents*{chapter}
+    [4em]
+    {}
+    {\chaptername~ \thecontentslabel\quad}
+    {}
+    {\hfill\contentspage}
+    [\vspace*{0.5\baselineskip}]
